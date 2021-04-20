@@ -1,0 +1,4 @@
+requests
+opencv-python
+numpy
+aws-xray-sdk
