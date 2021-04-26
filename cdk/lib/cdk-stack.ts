@@ -25,16 +25,16 @@ export class CdkStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY
     });
 
-    const lambdafunction = new lambda.DockerImageFunction(this, 'Lambda', {
-     functionName: "myfunction",
-     code: lambda.DockerImageCode.fromEcr(repository),
-    });
-    lambdafunction.role?.addManagedPolicy(
-      iam.ManagedPolicy.fromAwsManagedPolicyName('CloudWatchLambdaInsightsExecutionRolePolicy')
-    );
+    // const lambdafunction = new lambda.DockerImageFunction(this, 'Lambda', {
+    //  functionName: "myfunction",
+    //  code: lambda.DockerImageCode.fromEcr(repository),
+    // });
+    // lambdafunction.role?.addManagedPolicy(
+    //   iam.ManagedPolicy.fromAwsManagedPolicyName('CloudWatchLambdaInsightsExecutionRolePolicy')
+    // );
 
-    const myfunctions = api.root.addResource('myfunction')
-    const integration = new apigateway.LambdaIntegration(lambdafunction)
-    myfunctions.addMethod('ANY', integration);
+    // const myfunctions = api.root.addResource('myfunction')
+    // const integration = new apigateway.LambdaIntegration(lambdafunction)
+    // myfunctions.addMethod('ANY', integration);
   }
 }
